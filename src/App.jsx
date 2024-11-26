@@ -1,14 +1,14 @@
-
+import CounterViews from "./app/featured/counter/CounterViews";
 
 function App() {
- 
-
   return (
     <>
-     <h2>Counter App</h2>
-      
+      <div>
+        <h2>Counter App</h2>
+        <CounterViews />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

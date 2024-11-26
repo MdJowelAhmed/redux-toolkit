@@ -3,7 +3,7 @@ import CounterViews from "./app/featured/counter/CounterViews";
 function App() {
   return (
     <>
-      <div>
+      <div className="text-center">
         <h2>Counter App</h2>
         <CounterViews />
       </div>

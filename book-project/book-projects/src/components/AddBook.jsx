@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addBook } from "../featured/books/BookSlice";
-import { nanoid } from 'nanoid'
+import { nanoid } from "nanoid";
 
-const AddBook = () => {
+const AddBook = ({ editToBook }) => {
   const [book, setBook] = useState({
     name: "",
     author: "",
@@ -11,7 +11,13 @@ const AddBook = () => {
     category: "",
     quality: "",
   });
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (editToBook) {
+      setBook(editToBook);
+    }
+  }, [editToBook]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,8 +26,8 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("New Book Added:", {...book, id:nanoid()});
-   dispatch(addBook({...book, id:nanoid()}))
+    console.log("New Book Added:", { ...book, id: nanoid() });
+    dispatch(addBook({ ...book, id: nanoid() }));
   };
 
   return (
@@ -36,7 +42,10 @@ const AddBook = () => {
         <div className="grid grid-cols-3 gap-6">
           {/* Book Name */}
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="name"
+            >
               Book Name
             </label>
             <input
@@ -53,7 +62,10 @@ const AddBook = () => {
 
           {/* Author */}
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="author">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="author"
+            >
               Author
             </label>
             <input
@@ -70,7 +82,10 @@ const AddBook = () => {
 
           {/* Price */}
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="price"
+            >
               Price
             </label>
             <input
@@ -87,7 +102,10 @@ const AddBook = () => {
 
           {/* Category */}
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="category"
+            >
               Category
             </label>
             <input
@@ -104,7 +122,10 @@ const AddBook = () => {
 
           {/* Quality */}
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="quality">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="quality"
+            >
               Quality
             </label>
             <input
@@ -126,8 +147,10 @@ const AddBook = () => {
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
-            Add Book
+            {editToBook ?"Update Book" : "Add Book"}
+
           </button>
+          {editToBook && <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-5">Cancel</button>}
         </div>
       </form>
     </div>

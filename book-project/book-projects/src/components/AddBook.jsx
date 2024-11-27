@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addBook } from "../featured/books/BookSlice";
+import { addBook, updateBook } from "../featured/books/BookSlice";
 import { nanoid } from "nanoid";
 
 const AddBook = ({ editToBook, onCancel }) => {
@@ -28,7 +28,7 @@ const AddBook = ({ editToBook, onCancel }) => {
     e.preventDefault();
     console.log("New Book Added:", { ...book, id: nanoid() });
     if (editToBook) {
-      // update
+    dispatch(updateBook(book))
     } else {
       dispatch(addBook({ ...book, id: nanoid() }));
     }

@@ -55,8 +55,14 @@ const initialState={books:[
 const bookSlice= createSlice({
     name: 'books',
     initialState,
-    reducers:{}
+    reducers:{
+        deleteBook:(state,action)=>{
+            const id=action.payload;
+            state.books=state.books.filter((book)=>book.id !=id)
+        }
+    }
 
 })
+export const {deleteBook}=bookSlice.actions
 
 export default bookSlice.reducer

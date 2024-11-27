@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteBook } from "../featured/books/BookSlice";
 
 const BookList = () => {
   const { books } = useSelector((state) => state.booksR);
-
+const dispatch=useDispatch()
   const handleDelete = (id) => {
-    console.log(id);
+    dispatch(deleteBook(id))
   };
   return (
     <div className="container mx-auto">

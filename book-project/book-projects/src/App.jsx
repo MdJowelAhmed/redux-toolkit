@@ -8,11 +8,14 @@ const [editToBook, setEditToBook]=useState(null)
   const handleEdit=(book)=>{
    setEditToBook(book)
   }
+  const handleEditCancel=(book)=>{
+   setEditToBook(null)
+  }
   console.log(editToBook)
   return (
     <>
       <div>
-        <AddBook editToBook={editToBook} />
+        <AddBook editToBook={editToBook} onCancel={handleEditCancel}/>
         <BookList onHandleEdit={handleEdit}/>
       </div>
     </>

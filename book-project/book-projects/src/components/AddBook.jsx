@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addBook } from "../featured/books/BookSlice";
 import { nanoid } from "nanoid";
 
-const AddBook = ({ editToBook }) => {
+const AddBook = ({ editToBook, onCancel }) => {
   const [book, setBook] = useState({
     name: "",
     author: "",
@@ -27,7 +27,18 @@ const AddBook = ({ editToBook }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("New Book Added:", { ...book, id: nanoid() });
-    dispatch(addBook({ ...book, id: nanoid() }));
+    if (editToBook) {
+      // update
+    } else {
+      dispatch(addBook({ ...book, id: nanoid() }));
+    }
+    setBook({
+      name: "",
+      author: "",
+      price: "",
+      category: "",
+      quality: "",
+    });
   };
 
   return (
@@ -147,10 +158,16 @@ const AddBook = ({ editToBook }) => {
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
-            {editToBook ?"Update Book" : "Add Book"}
-
+            {editToBook ? "Update Book" : "Add Book"}
           </button>
-          {editToBook && <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-5">Cancel</button>}
+          {editToBook && (
+            <button
+              onClick={onCancel}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-5"
+            >
+              Cancel
+            </button>
+          )}
         </div>
       </form>
     </div>

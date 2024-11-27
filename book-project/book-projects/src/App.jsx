@@ -6,7 +6,7 @@ function App() {
   return (
     <>
      <div>
-      <h2>Books App</h2>
+     
       <BookList />
      </div>
     </>

@@ -1,0 +1,61 @@
+{
+    "products":[
+        {
+          "id": 1,
+          "title": "Wireless Headphones",
+          "description": "High-quality wireless headphones with noise cancellation.",
+          "price": 120.99,
+          "category": "Electronics"
+        },
+        {
+          "id": 2,
+          "title": "Smartphone",
+          "description": "Latest model with high-speed processor and AMOLED display.",
+          "price": 899.99,
+          "category": "Electronics"
+        },
+        {
+          "id": 3,
+          "title": "Office Chair",
+          "description": "Ergonomic office chair with lumbar support.",
+          "price": 199.99,
+          "category": "Furniture"
+        },
+        {
+          "id": 4,
+          "title": "Running Shoes",
+          "description": "Lightweight and comfortable running shoes for daily workouts.",
+          "price": 89.99,
+          "category": "Sports"
+        },
+        {
+          "id": 5,
+          "title": "Cookware Set",
+          "description": "Non-stick cookware set with heat-resistant handles.",
+          "price": 149.99,
+          "category": "Home & Kitchen"
+        },
+        {
+          "id": 6,
+          "title": "Fiction Book",
+          "description": "Bestselling fiction novel with thrilling twists.",
+          "price": 14.99,
+          "category": "Books"
+        },
+        {
+          "id": 7,
+          "title": "Gaming Keyboard",
+          "description": "Mechanical RGB gaming keyboard with customizable keys.",
+          "price": 79.99,
+          "category": "Electronics"
+        },
+        {
+          "id": 8,
+          "title": "Yoga Mat",
+          "description": "Durable and anti-slip yoga mat for fitness enthusiasts.",
+          "price": 29.99,
+          "category": "Sports"
+        }
+      ]
+      
+}

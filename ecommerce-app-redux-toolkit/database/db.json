@@ -41,6 +41,20 @@
       "description": "Mechanical RGB gaming keyboard with customizable keys.",
       "price": 79.99,
       "category": "Electronics"
+    },
+    {
+      "id": "BmKUyQunrJNsKItwHk5NG",
+      "title": "jershy",
+      "description": "barcholona jershy",
+      "price": "319",
+      "category": "fashion"
+    },
+    {
+      "id": "S2PoI_Nr3NySTK045VJWr",
+      "title": "new products add",
+      "description": "ki r  likhbo description ,ja mon chay taye descriptione likhe dilam",
+      "price": "200",
+      "category": "faltu"
     }
   ]
 }

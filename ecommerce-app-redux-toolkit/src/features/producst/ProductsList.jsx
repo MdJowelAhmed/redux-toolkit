@@ -21,17 +21,17 @@ const ProductsList = () => {
           products.map((product) => {
             return (
               <article key={product.id}>
-                <div className="p-10 shadow-lg rounded-lg h-48 hover:shadow-2xl ">
+                <div className="p-10 shadow-lg rounded-lg h-60 hover:shadow-2xl ">
                   <h2 className="text-3xl ">{product.title}</h2>
                   <p>{product.description} </p>
                   <div className="flex justify-between">
                     <p className="font-bold">${product.price} </p>
                     <p>{product.category} </p>
                   </div>
-                  <div>
+                  <div className="mt-5">
                     <button
                       onClick={() => dispatch(deleteProducts(product.id))}
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-5"
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
                       Delete
                     </button>

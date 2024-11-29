@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
+import { useDispatch } from "react-redux";
+import { addProducts } from "./productSlice";
 
 const AddProducts = () => {
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({
-    id: "",
     title: "",
     description: "",
     price: "",
@@ -16,21 +19,7 @@ const AddProducts = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Validate the form data
-    if (
-      !product.id ||
-      !product.title ||
-      !product.description ||
-      !product.price ||
-      !product.category
-    ) {
-      alert("Please fill all fields!");
-      return;
-    }
-
-    // Log the product data
-    console.log("New Product:", product);
+    dispatch(addProducts({ ...product, id: nanoid() }));
 
     // Reset the form after submission
     setProduct({ id: "", title: "", description: "", price: "", category: "" });

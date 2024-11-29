@@ -15,13 +15,6 @@
       "category": "Electronics"
     },
     {
-      "id": "3",
-      "title": "Office Chair",
-      "description": "Ergonomic office chair with lumbar support.",
-      "price": 199.99,
-      "category": "Furniture"
-    },
-    {
       "id": "4",
       "title": "Running Shoes",
       "description": "Lightweight and comfortable running shoes for daily workouts.",

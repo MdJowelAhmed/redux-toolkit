@@ -6,7 +6,7 @@ const ProductsList = () => {
   const { products, isLoading, error } = useSelector(
     (state) => state.productsR
   );
-  console.log(products);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());

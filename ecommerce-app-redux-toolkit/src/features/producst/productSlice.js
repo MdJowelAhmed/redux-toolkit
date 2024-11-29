@@ -11,6 +11,11 @@ export const fetchProducts=createAsyncThunk("products/fetchProducts",async ()=>{
   const res=await axios.get("http://localhost:3001/products");
   return (res.data)
 })
+export const addProducts=createAsyncThunk("products/addProducts",async (product)=>{
+  const res=await axios.post(`http://localhost:3001/products/`,product);
+  console.log(res)
+ 
+})
 export const deleteProducts=createAsyncThunk("products/deleteProducts",async (id)=>{
   const res=await axios.delete(`http://localhost:3001/products/${id}`);
   console.log(res)

@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "Wireless Headphones",
-      "description": "High-quality wireless headphones with noise cancellation.",
-      "price": 120.99,
-      "category": "Electronics"
-    },
-    {
       "id": "2",
       "title": "Smartphone",
       "description": "Latest model with high-speed processor and AMOLED display.",
@@ -29,32 +22,18 @@
       "category": "Home & Kitchen"
     },
     {
-      "id": "6",
-      "title": "Fiction Book",
-      "description": "Bestselling fiction novel with thrilling twists.",
-      "price": 14.99,
-      "category": "Books"
+      "title": "Fiction Book need",
+      "description": "Bestselling fiction novel with thrilling twists and very interting book",
+      "price": "20",
+      "category": "Books",
+      "id": "6"
     },
     {
-      "id": "7",
-      "title": "Gaming Keyboard",
+      "title": "Gaming Keyboard redmik",
       "description": "Mechanical RGB gaming keyboard with customizable keys.",
-      "price": 79.99,
-      "category": "Electronics"
-    },
-    {
-      "id": "BmKUyQunrJNsKItwHk5NG",
-      "title": "jershy",
-      "description": "barcholona jershy",
-      "price": "319",
-      "category": "fashion"
-    },
-    {
-      "id": "S2PoI_Nr3NySTK045VJWr",
-      "title": "new products add",
-      "description": "ki r  likhbo description ,ja mon chay taye descriptione likhe dilam",
-      "price": "200",
-      "category": "faltu"
+      "price": "100",
+      "category": "Electronics",
+      "id": "7"
     }
   ]
 }

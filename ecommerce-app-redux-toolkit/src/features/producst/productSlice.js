@@ -18,8 +18,13 @@ export const addProducts=createAsyncThunk("products/addProducts",async (product)
 })
 export const deleteProducts=createAsyncThunk("products/deleteProducts",async (id)=>{
   const res=await axios.delete(`http://localhost:3001/products/${id}`);
-  console.log(res)
+
  return id
+})
+export const updateProducts=createAsyncThunk("products/updateProducts",async ({id, product})=>{
+  const res=await axios.put(`http://localhost:3001/products/${id}`, product);
+  console.log(res.data)
+ return res.data
 })
 
 export const productSlice = createSlice({
@@ -44,6 +49,10 @@ export const productSlice = createSlice({
     })
     .addCase(deleteProducts.fulfilled, (state,action)=>{
     state.products=state.products.filter((product)=>product.id !==action.payload)
+    })
+    .addCase(updateProducts.fulfilled, (state,action)=>{
+   const index=state.products.findIndex((product)=>product.id===action.payload.id)
+   state.products[index]=action.payload
     });
   }
 })

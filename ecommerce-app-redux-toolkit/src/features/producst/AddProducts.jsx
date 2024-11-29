@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
-import { addProducts } from "./productSlice";
+import { addProducts, updateProducts } from "./productSlice";
 
-const AddProducts = () => {
+// eslint-disable-next-line react/prop-types, no-unused-vars
+const AddProducts = ({ productToEdit, isEdit }) => {
   const dispatch = useDispatch();
   const [product, setProduct] = useState({
     title: "",
@@ -12,6 +14,17 @@ const AddProducts = () => {
     category: "",
   });
 
+  useEffect(() => {
+    if (productToEdit) {
+      setProduct({
+        title: productToEdit.title,
+        description: productToEdit.description,
+        price: productToEdit.price,
+        category: productToEdit.category,
+      });
+    }
+  }, [productToEdit]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
@@ -19,7 +32,12 @@ const AddProducts = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addProducts({ ...product, id: nanoid() }));
+
+    if (isEdit) {
+      dispatch(updateProducts({ id:productToEdit.id, product:product }));
+    } else {
+      dispatch(addProducts({ ...product, id: nanoid() }));
+    }
 
     // Reset the form after submission
     setProduct({ id: "", title: "", description: "", price: "", category: "" });
@@ -94,7 +112,7 @@ const AddProducts = () => {
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
         >
-          Add Product
+          {isEdit ? "update products" : "add product"}
         </button>
       </form>
     </div>

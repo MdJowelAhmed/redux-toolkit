@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProducts, fetchProducts } from "./productSlice";
 
-const ProductsList = () => {
+const ProductsList = ({onHandleProductEdit}) => {
   const { products, isLoading, error } = useSelector(
     (state) => state.productsR
   );
@@ -11,6 +11,10 @@ const ProductsList = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  const handleEdit= (product)=>{
+    onHandleProductEdit(product)
+  }
 
   return (
     <div className="container mx-auto">
@@ -35,6 +39,12 @@ const ProductsList = () => {
                     >
                       Delete
                     </button>
+                    <button
+                      onClick={()=>handleEdit(product)}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline ml-5"
+                    >
+                      Edit
+                      </button>
                   </div>
                 </div>
               </article>

@@ -11,6 +11,11 @@ export const fetchProducts=createAsyncThunk("products/fetchProducts",async ()=>{
   const res=await axios.get("http://localhost:3001/products");
   return (res.data)
 })
+export const deleteProducts=createAsyncThunk("products/deleteProducts",async (id)=>{
+  const res=await axios.delete(`http://localhost:3001/products/${id}`);
+  console.log(res)
+ return id
+})
 
 export const productSlice = createSlice({
   name: 'products',
@@ -29,6 +34,9 @@ export const productSlice = createSlice({
       state.isLoading=false;
       state.error=action.error.message || "data fetch field"
     })
+    .addCase(deleteProducts.fulfilled, (state,action)=>{
+    state.products=state.products.filter((product)=>product.id !==action.payload)
+    });
   }
 })
 

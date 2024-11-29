@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "./productSlice";
+import { deleteProducts, fetchProducts } from "./productSlice";
 
 const ProductsList = () => {
   const { products, isLoading, error } = useSelector(
@@ -21,11 +21,21 @@ const ProductsList = () => {
           products.map((product) => {
             return (
               <article key={product.id}>
-                <div className="p-10 shadow-lg rounded-lg h-48">
-                  <h2>{product.title}</h2>
+                <div className="p-10 shadow-lg rounded-lg h-48 hover:shadow-2xl ">
+                  <h2 className="text-3xl ">{product.title}</h2>
                   <p>{product.description} </p>
-                  <p>{product.price} </p>
-                  <p>{product.category} </p>
+                  <div className="flex justify-between">
+                    <p className="font-bold">${product.price} </p>
+                    <p>{product.category} </p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => dispatch(deleteProducts(product.id))}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-5"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </article>
             );
